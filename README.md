@@ -1,24 +1,35 @@
-# application
+# Studia - projekt na narzędzia programistyczne
 
-## Project setup
-```
-yarn install
+## Wymagane oprogramowanie
+
+- node.js wersja 14.3.0 albo nowsza,
+- npm albo yarn (menadżer pakietów node),
+- testowane na Google Chrome
+
+### Proces instalacji
+
+```sh
+$ git clone https://github.com/Grzanka99/matrix-inverter.git
+$ cd matrix-inverter
+$ yarn install (lub npm install);
 ```
 
-### Compiles and hot-reloads for development
+### Uruchomienie aplikacji w trybie deweloperskim
+
 ```
 yarn serve
 ```
 
-### Compiles and minifies for production
+### Kompilacja aplikacji do wersji produkcyjnej
+
 ```
 yarn build
 ```
 
-### Lints and fixes files
+Skompilowany program pojawi się w katalogu ./dist, należy pliki znajdujące się w tym katalogu umieścić w głównym katalogu serwera
+
+### Wyszukanie oraz naprawienie błędów składni
+
 ```
 yarn lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

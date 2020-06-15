@@ -10,9 +10,6 @@
       <button class="run" @click="run('gauss')">
         run with gauss
       </button>
-      <button class="run" @click="run('equ')">
-        run by equations
-      </button>
 
       <button class="run" @click="rand">
         fill with random values
@@ -78,21 +75,11 @@ export default class App extends Vue {
   }
 
   run(which: string) {
-    let t0;
-    let t1;
-    switch (which) {
-      case 'gauss':
-        t0 = performance.now();
-        this.inverted = this.Matrix.invertMatrixWithGauss();
-        t1 = performance.now();
-        this.timeTaken = t1 - t0;
-        break;
-      case 'equ':
-        this.inverted = this.Matrix.inverMatrixByEquations();
-        break;
-      default:
-        break;
-    }
+    console.log(which);
+    const t0 = performance.now();
+    this.inverted = this.Matrix.invertMatrixWithGauss();
+    const t1 = performance.now();
+    this.timeTaken = t1 - t0;
   }
 
   rand() {

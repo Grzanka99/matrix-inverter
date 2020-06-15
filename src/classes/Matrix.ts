@@ -1,10 +1,5 @@
 import { MatrixType } from '@/types';
-import {
-  calcAlgCompMatrix,
-  calcDet,
-  generateExtendedMatrix,
-  extendedGauss,
-} from '@/lib/utils';
+import { calcAlgCompMatrix, calcDet } from '@/lib/utils';
 
 export class Matrix {
   size: number;
@@ -108,36 +103,6 @@ export class Matrix {
     return iM;
   }
 
-  public inverMatrixByEquations(): MatrixType {
-    const matrix: MatrixType = [];
-    let m: MatrixType = generateExtendedMatrix(this._matrix);
-    m = extendedGauss(m);
-
-    if (m.length === 1 && m[0].length === 1) {
-      return m;
-    }
-
-    for (let i = 0; i < this.size; i++) {
-      const row: Array<number> = [];
-      for (let j = 0; j < this.size; j++) {
-        let x: number;
-        x = m[i * this.size + j][m.length - 1];
-        x /= m[i * this.size + j][i * this.size + j];
-
-        x = x + 1 - 1;
-
-        const precision = 10000;
-        x = Math.round(x * precision) / precision;
-
-        row.push(x);
-      }
-
-      matrix.push(row);
-    }
-
-    return matrix;
-  }
-
   public setValue(row: number, col: number, val = 0) {
     this._matrix[row][col] = val;
   }
@@ -149,9 +114,5 @@ export class Matrix {
 
   public get matrix(): MatrixType | boolean {
     return this._matrix;
-  }
-
-  public run() {
-    console.log(this.inverMatrixByEquations());
   }
 }
